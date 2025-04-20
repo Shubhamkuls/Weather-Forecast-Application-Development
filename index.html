@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Responsive viewport settings for mobile and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast App</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-blue-200 via-blue-300 to-blue-500 min-h-screen p-4">
+
+    <!-- App Container -->
+    <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6">
+
+        <!-- Title -->
+        <h1 class="text-3xl font-bold text-center mb-6 text-blue-700">🌤️ Weather Forecast App</h1>
+
+        <!-- Input section: search bar + buttons -->
+        <div class="flex flex-col md:flex-row gap-4 items-center justify-between mb-4">
+            <!-- Input field for city name -->
+            <input id="cityInput" type="text" placeholder="Enter city name"
+                class="w-full md:w-1/2 px-4 py-2 rounded border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+            <!-- Button to fetch weather for entered city -->
+            <button id="searchBtn"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Search</button>
+
+            <!-- Button to fetch weather using user’s current location -->
+            <button id="currentBtn" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Use
+                Current Location</button>
+        </div>
+
+        <!-- Dropdown for recently searched cities -->
+        <select id="recentCities" class="w-full md:w-1/2 px-4 py-2 rounded border border-blue-400 mb-4 hidden">
+            <!-- Options will be added dynamically using JavaScript -->
+        </select>
+
+        <!-- Error message display -->
+        <p id="error" class="text-red-600 font-semibold text-center hidden"></p>
+
+        <!-- Current weather information section -->
+        <div id="weatherInfo" class="bg-blue-100 p-4 rounded shadow hidden mt-4">
+            <h2 class="text-xl font-bold mb-2 text-blue-800" id="cityName">City Name</h2>
+            <div class="flex items-center space-x-4">
+                <!-- Weather icon -->
+                <img id="weatherIcon" src="" alt="Weather Icon" class="w-12 h-12" />
+                <!-- Weather details -->
+                <p>🌡️ Temp: <span id="temperature"></span>°C</p>
+                <p>💧 Humidity: <span id="humidity"></span>%</p>
+                <p>🌬️ Wind: <span id="wind"></span> m/s</p>
+            </div>
+        </div>
+
+        <!-- Extended forecast section -->
+        <div id="forecastContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6 hidden">
+            <!-- Forecast cards will be generated and added here by JavaScript -->
+        </div>
+
+    </div>
+
+    <!-- JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>
